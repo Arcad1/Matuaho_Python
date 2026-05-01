@@ -31,7 +31,7 @@ def choose_move():
     else:
         obstacle_count += 1
     if distance_cm >= warning_distance_cm:
-        if distance_cup > 10:
+        if distance_cup == 10:
             moves.move_left(1.4)
             distance_cup += 1
         else:
