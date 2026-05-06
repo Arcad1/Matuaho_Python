@@ -2,7 +2,7 @@ from lesson_header import *
 
 # Variables
 number_of_obstacles = 4
-obstacle_count = 0
+obstacle_count = 5
 move_speed = 220
 warning_distance_cm = 20
 eye_colours = [
@@ -20,10 +20,11 @@ def get_eye_colour(self, sensor_value):
 # def show_progress(...):
 #     ...
 def flash_progress():
+    global obstacle_count
     if obstacle_count < 4:
         eyes.set_both(0, 0, 255)
         print("{} cups left".format(obstacle_count))
-        obstacle_count += 1
+        obstacle_count -= 1
     elif obstacle_count >= 4:
         colour = eye_colour[5]
         eyes.set_both(0, 255, 0)
@@ -38,15 +39,15 @@ def choose_move():
     distance_cm = sonar.get_distance_cm(filtered=True)
     print("Robot is {}cm away from object".format(distance_cm))
     if distance_cm > warning_distance_cm:
-        moves.forward(1.0)
+        moves.forward(0.5)
     else:
         obstacle_count += 1
         flash_progress()
         if distance_cup == 0:
-            moves.move_left(1.8)
+            moves.move_right(1.8)
             distance_cup += 1
         else:
-            moves.move_right(1.8)
+            moves.move_left(1.8)
             distance_cup -= 1
             
     
