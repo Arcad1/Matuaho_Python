@@ -21,17 +21,18 @@ def get_eye_colour(self, sensor_value):
 #     ...
 def flash_progress():
     global obstacle_count
-    if obstacle_count < 4:
+    global eye_colours
+    if obstacle_count < 5:
         eyes.set_both(0, 0, 255)
-        print("{} cups left".format(obstacle_count))
-        obstacle_count += 1
+        print("---------{} cups left----------".format(obstacle_count))
     elif obstacle_count >= 4:
-        colour = eye_colour[5]
         eyes.set_both(0, 255, 0)
-    with open("test.txt") as f:
-        print.(f.read)
-    with open("test.txt", "a") as f:
-        f.write(f" {cups_passed()}")
+    elif obstacle_count == 4:
+        with open("test.txt") as f:
+            print(f.read)
+    
+        with open("test.txt", "a") as f:
+            f.write(f"\n {cups_passed()}")
 
 # def choose_move(...):
 def choose_move():
