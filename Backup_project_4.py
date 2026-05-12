@@ -25,9 +25,8 @@ def flash_progress():
     if obstacle_count < 5:
         eyes.set_both(0, 0, 255)
         print("---------{} cups left----------".format(obstacle_count))
-    elif obstacle_count >= 4:
-        eyes.set_both(0, 255, 0)
     elif obstacle_count == 4:
+        eyes.set_both(0, 255, 0)
         with open("test.txt") as f:
             print(f.read)
     
