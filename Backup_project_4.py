@@ -22,10 +22,10 @@ def get_eye_colour(self, sensor_value):
 def flash_progress():
     global obstacle_count
     global eye_colours
-    if obstacle_count < 4:
+    if obstacle_count < 5:
         eyes.set_both(0, 0, 255)
         print("---------{} cups left----------".format(obstacle_count))
-    elif obstacle_count >= 4:
+    elif obstacle_count >= 5:
         print("done")
         eyes.set_both(255, 0, 0)
         with open("test.txt") as f:
@@ -33,6 +33,8 @@ def flash_progress():
     
         with open("test.txt", "a") as f:
             f.write(f"\n {cups_passed()}")
+
+
 
 # def choose_move(...):
 def choose_move():
